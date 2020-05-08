@@ -174,6 +174,20 @@ export class ContractingService {
         catchError(this.handleError<Profile[]>('search', []))
       );
   }
+  updateRating(username: string, rating: number): Observable<any> {
+    console.log(rating);
+    return this.http
+    .put(
+      `http://localhost:8000/updateRating/${username}/`,
+      JSON.stringify(rating),
+      this.httpOptions
+    )
+    .pipe(
+      tap((updatedRating: any) =>
+        console.log(`updated rating w/ rating=${updatedRating}`)
+      )
+    );
+  }
 
   /**
    * Handle Http operation that failed.

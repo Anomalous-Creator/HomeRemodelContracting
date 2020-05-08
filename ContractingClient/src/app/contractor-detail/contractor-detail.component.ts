@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ContractingService } from '../contracting.service';
 import { Profile } from '../Interfaces/Profile';
 import { Skill } from '../Interfaces/Skill';
+import { throwIfEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contractor-detail',
@@ -40,4 +41,14 @@ export class ContractorDetailComponent implements OnInit {
       console.log(this.skills);
     }))
   }
+
+  updateRating(ratingInput): void {
+    const username: string = this.route.snapshot.paramMap.get('username');
+    //this.contractingService.getProfile(username).subscribe((myProfile) => {
+    //  this.profile = myProfile;
+    //  this.profile.rating += ratingInput;
+      this.contractingService.updateRating(username, ratingInput);
+    //})
+  }
+
 }

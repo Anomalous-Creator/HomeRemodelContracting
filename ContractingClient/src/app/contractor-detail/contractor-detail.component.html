@@ -34,7 +34,7 @@
         </div>
         <div class="col-sm-4">
             <h2>Rating</h2>
-          <h3>{{ profile.rating }}</h3>
+          <h3>{{ profile.rating/profile.number_of_ratings }}</h3>
         </div>
         <div class="col-sm-4">
             <h2>Years of Experience</h2>
@@ -49,6 +49,31 @@
       </div>
       <div class="row"></div>
       <div class="row"></div>
+
+      <div class="container" margin="auto">
+        <div class="row info">
+          <label class="col-sm-2 col-form-label" for="Ratings"
+            >Rate this Contractor:</label
+          >
+          <div class="col-sm-10" margin="auto">
+            <input #Ratings
+
+              type="number"
+              class="form-control"
+              name="Ratings"
+              id="Ratings"
+              placeholder="0"
+              max=5
+              min=0
+            />
+            <button id='ratingButton' class='center' (click)="updateRating(Ratings.value)">Submit</button>
+          </div>
+
+        </div>
+      </div>
+
+
+
     </div>
   </div>
 </div>

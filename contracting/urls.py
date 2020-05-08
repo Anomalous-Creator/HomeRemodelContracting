@@ -11,6 +11,7 @@ ROUTER.register('Skills', views.SkillsViewSet)
 ROUTER.register('searchProfiles', views.ProfileQueryView)
 ROUTER.register(r'users', views.UserViewSet)
 ROUTER.register(r'groups', views.GroupViewSet)
+ROUTER.register('updateRating', views.updateRatingsView)
 urlpatterns = [
     path('', include(ROUTER.urls)),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),

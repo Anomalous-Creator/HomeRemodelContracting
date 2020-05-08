@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
         this.password = "";
       }else{
         console.log('found Profile');
+        for (var profile in myprofile)
+
+
         this.profile = myprofile[0];
         sessionStorage.removeItem('username');
         sessionStorage.setItem('username', this.profile.username);

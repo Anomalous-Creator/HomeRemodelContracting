@@ -4,7 +4,7 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from rest_framework import viewsets, permissions, views, generics
 from rest_framework.response import Response
 from .models import Profile, Profession, Skills
-from .serializers import ProfileSerializer, SkillsSerializer, ProfessionSerializer
+from .serializers import ProfileSerializer, SkillsSerializer, ProfessionSerializer, updateRatingSerializer
 from .serializers import UserSerializer, GroupSerializer, searchProfilesSerializer
 from django.db import connection
 from django.db import models
@@ -112,3 +112,6 @@ class ProfileQueryView(viewsets.ModelViewSet):
             return queryset
         else:
             return queryset
+class updateRatingsView(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = updateRatingSerializer
